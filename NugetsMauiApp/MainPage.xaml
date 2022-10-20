@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NugetsMauiApp.MainPage"
+             xmlns:dxg="clr-namespace:DevExpress.Maui.DataGrid;assembly=DevExpress.Maui.DataGrid"
+             xmlns:dxc="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls"
+             xmlns:dxsch="clr-namespace:DevExpress.Maui.Scheduler;assembly=DevExpress.Maui.Scheduler"
+             xmlns:dxcv="clr-namespace:DevExpress.Maui.CollectionView;assembly=DevExpress.Maui.CollectionView">
+
+
+    <dxc:TabView>
+        <dxc:TabViewItem HeaderText="Empty">
+            
+        </dxc:TabViewItem>
+
+        <dxc:TabViewItem HeaderText="Grid">
+            <dxg:DataGridView x:Name="grid" ItemsSource="{Binding Items}">
+                <dxg:TextColumn FieldName="Id"/>
+                <dxg:TextColumn FieldName="Text"/>
+            </dxg:DataGridView>
+        </dxc:TabViewItem>
+
+        <dxc:TabViewItem HeaderText="Scheduler">
+            <dxsch:DayView x:Name="sch">
+
+            </dxsch:DayView>
+        </dxc:TabViewItem>
+
+        <dxc:TabViewItem HeaderText="ListView">
+            <dxcv:DXCollectionView ItemsSource="{Binding Items}">
+                <dxcv:DXCollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Id}"/>
+                            <Label Text="{Binding Text}"/>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </dxcv:DXCollectionView.ItemTemplate>
+            </dxcv:DXCollectionView>
+        </dxc:TabViewItem>
+    </dxc:TabView>
+
+</ContentPage>
+
